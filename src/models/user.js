@@ -63,15 +63,15 @@ userSchema.virtual('tasks', {
     localField: '_id',
     foreignField: 'owner'
 })
-userSchema.methods.toJSON = function() {
-    const user = this
-    userObj =user.toObject()
+// userSchema.methods.toJSON = function() {
+//     const user = this
+//     userObj =user.toObject()
 
-    delete userObj.password
-    delete userObj.tokens
+//     delete userObj.password
+//     delete userObj.tokens
     
-    return userObj
-}
+//     return userObj
+// }
 //Function to handle login
 userSchema.statics.findMyCredentials = async (email,password) =>{
     const user = await User.findOne(email)
