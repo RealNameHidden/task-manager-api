@@ -13,7 +13,7 @@ router.post('/users', async (req, res) => {
         user.tokens= user.tokens.concat({token})
         sendWelcome(user.email,user.name)
         await user.save()
-        res.status(201).send(user)
+        res.status(201).send({user,token})
     } catch (e) {
         res.status(400).send(e.message)
     }
